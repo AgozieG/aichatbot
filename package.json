@@ -1,0 +1,35 @@
+{
+  "name": "robocode-ai-assistant",
+  "homepage": "https://AgozieG.github.io/aichatbot/",
+  "version": "1.0.0",
+  "description": "AI-powered robotics programming assistant using Gemini API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [
+    "robotics",
+    "ai",
+    "gemini",
+    "education",
+    "programming"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "gh-pages": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
