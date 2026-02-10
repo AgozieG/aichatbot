@@ -1,5 +1,6 @@
 {
   "name": "robocode-ai-assistant",
+  "homepage": "https://AgozieG.github.io/aichatbot/",
   "version": "1.0.0",
   "description": "AI-powered robotics programming assistant using Gemini API",
   "main": "server.js",
