@@ -8,6 +8,12 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+        // Set this to your deployed backend URL (no trailing slash),
+        // e.g. const API_BASE = 'https://my-backend.herokuapp.com'
+        // Leave as empty string for same-origin (useful for local dev with server running).
+        const API_BASE = '';
+    </script>
     <style>
         :root {
             --primary: #00ff9f;
@@ -716,7 +722,7 @@
 
             const checkGeminiStatus = async () => {
                 try {
-                    const response = await fetch('/api/status');
+                    const response = await fetch(API_BASE + '/api/status');
                     const data = await response.json();
                     setGeminiStatus(data.status);
                     if (data.model) {
@@ -747,7 +753,7 @@
                         content: msg.text
                     }));
 
-                    const response = await fetch('/api/chat', {
+                    const response = await fetch(API_BASE + '/api/chat', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
