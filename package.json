@@ -7,6 +7,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "build": "nodemon server.js build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "nodemon server.js preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
