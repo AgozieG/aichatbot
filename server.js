@@ -135,12 +135,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-// app.listen(PORT, () => {
-//     console.log(`\n🤖 RoboCode AI Server is running!`);
-//     console.log(`📡 Server: http://localhost:${PORT}`);
-//     console.log(`🔑 API Key configured: ${process.env.GEMINI_API_KEY ? '✓ Yes' : '✗ No - Please add to .env file'}`);
-//     console.log(`\nReady to help with robotics programming! 🚀\n`);
-// });
+
 
 
 if (process.env.NODE_ENV !== 'production') {
