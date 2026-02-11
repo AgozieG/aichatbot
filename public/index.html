@@ -12,7 +12,32 @@
         // Set this to your deployed backend URL (no trailing slash),
         // e.g. const API_BASE = 'https://my-backend.herokuapp.com'
         // Leave as empty string for same-origin (useful for local dev with server running).
-        const API_BASE = 'https://aichatbot-h3yx.vercel.app';
+        // In your index.html or JavaScript file
+const API_BASE = window.location.origin; // This will automatically use your Vercel URL
+
+// Your fetch call should look like this:
+async function sendMessage(message) {
+    try {
+        const response = await fetch(`${API_BASE}/api/chat`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.response;
+
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
     </script>
     <style>
         :root {
