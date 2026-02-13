@@ -39,9 +39,31 @@ const API_BASE = "https://aichatbot-1nucooi.vercel.app/"; // This will automatic
 //     }
 // }
 
+// const sendMessage = async (userMessage) => {
+//   try {
+//     const response = await fetch('/api/chat', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ message: userMessage })
+//     });
+    
+//     const data = await response.json();
+//     const aiResponse = data.candidates[0].content.parts[0].text;
+    
+//     // Display the response in your chat
+//     return aiResponse;
+    
+//   } catch (error) {
+//     console.error('Error:', error);
+//     return 'Sorry, something went wrong!';
+//   }
+// };
+
 const sendMessage = async (userMessage) => {
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch('/chat', {  // Changed from '/api/chat' to '/chat'
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,7 +74,6 @@ const sendMessage = async (userMessage) => {
     const data = await response.json();
     const aiResponse = data.candidates[0].content.parts[0].text;
     
-    // Display the response in your chat
     return aiResponse;
     
   } catch (error) {
