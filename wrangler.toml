@@ -1,5 +1,6 @@
 name = "aichatbot"
 compatibility_date = "2024-01-01"
+directory = "./dist"
 
 [vars]
 # Add any public variables here
