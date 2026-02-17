@@ -9,11 +9,9 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script>
-        // Set this to your deployed backend URL (no trailing slash),
-        // e.g. const API_BASE = 'https://my-backend.herokuapp.com'
-        // Leave as empty string for same-origin (useful for local dev with server running).
-        // In your index.html or JavaScript file
-const API_BASE = "http://localhost:3001"; // Point to Express server on port 3001
+        // Dynamically set API base URL
+        // Uses same-origin for both local dev and production
+const API_BASE = window.location.origin;
 
 // Your fetch call should look like this:
 async function sendMessage(message) {
