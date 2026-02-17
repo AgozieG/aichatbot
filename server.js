@@ -9,7 +9,11 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve your HTML file from 'public' folder
+
+// Serve built frontend from dist folder (for production), fallback to public (for dev)
+const path = require('path');
+const publicDir = process.env.NODE_ENV === 'production' ? path.join(__dirname, 'dist') : path.join(__dirname, 'public');
+app.use(express.static(publicDir));
 
 // Initialize Gemini AI
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -132,6 +136,12 @@ app.get('/api/health', (req, res) => {
         status: 'healthy',
         timestamp: new Date().toISOString()
     });
+});
+
+// Catch-all route to serve index.html for client-side routing
+app.get('*', (req, res) => {
+    const indexPath = path.join(publicDir, 'index.html');
+    res.sendFile(indexPath);
 });
 
 // Start server

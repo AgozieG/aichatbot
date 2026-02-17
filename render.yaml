@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: robocode-ai
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: cross-env NODE_ENV=production node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        scope: build
+        sync: false
+      - key: PORT
+        value: 3000
+    plan: free

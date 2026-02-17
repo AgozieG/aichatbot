@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
     root: 'public',
     plugins: [react()],
-    base: "/aichatbot/",
+    base: process.env.NODE_ENV === 'production' ? "/" : "/aichatbot/",
     build: {
         outDir: '../dist',
         emptyOutDir: true
