@@ -145,28 +145,8 @@ app.get('*', (req, res) => {
 });
 
 // Start server
-
-
-
-
-
-// For Vercel serverless functions
-// if (process.env.NODE_ENV !== 'production') {
-//     const PORT = process.env.PORT || 3001;
-//     app.listen(PORT, () => {
-//         console.log(`\n🤖 RoboCode AI Server is running!`);
-//         console.log(`📡 Server: http://localhost:${PORT}`);
-//         console.log(`🔑 API Key configured: ${process.env.GEMINI_API_KEY ? '✓ Yes' : '✗ No'}`);
-//         console.log(`\nReady to help with robotics programming! 🚀\n`);
-//     });
-// } else {
-//     // In production (Vercel), just export the app
-//     console.log('Running in serverless mode (Vercel)');
-// }
-
-// module.exports = app;
-
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' || process.env.RENDER) {
+    // Run server locally or on Render (not serverless)
     const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
         console.log(`\n🤖 RoboCode AI Server is running!`);
